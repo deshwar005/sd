@@ -9,11 +9,10 @@ console.log(fs.readFileSync("./ca.pem").toString());
 
 String.prototype.isNumber = function(){return /^\d+$/.test(this);}
 
-const aivenpassword = 'AVNS_ZGhXQQZfW0NWNl1F36M';
 const connection = mysql.createConnection({
     host: 'mysql-139bc1d1-deshwardeshwar5-e027.a.aivencloud.com',
     user: 'deshwar005',
-    password: aivenpassword,
+    password: 'AVNS_ZGhXQQZfW0NWNl1F36M',
     database: 'defaultdb',
     port: 14956, 
     ssl: {
