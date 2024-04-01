@@ -2,10 +2,8 @@ const express = require('express');
 const serverless = require('serverless-http')
 const app = express();
 const router = express.Router();
-const fs = require('fs');
 const cors = require("cors");
 const mysql = require('mysql');
-console.log(fs.readFileSync("./ca.pem").toString());
 
 String.prototype.isNumber = function(){return /^\d+$/.test(this);}
 
@@ -17,7 +15,32 @@ const connection = mysql.createConnection({
     port: 14956, 
     ssl: {
       rejectUnauthorized: true,
-      ca: fs.readFileSync("./ca.pem").toString(),
+      ca: `-----BEGIN CERTIFICATE-----
+      MIIEQTCCAqmgAwIBAgIULjcK6lVQjDV4HjFsAG8/rQk2xpswDQYJKoZIhvcNAQEM
+      BQAwOjE4MDYGA1UEAwwvYTMwOTFhNzUtNWU5OC00NjI1LTliYjEtOWMxOTRkZjJh
+      MjhiIFByb2plY3QgQ0EwHhcNMjQwMzIwMTg1NDM1WhcNMzQwMzE4MTg1NDM1WjA6
+      MTgwNgYDVQQDDC9hMzA5MWE3NS01ZTk4LTQ2MjUtOWJiMS05YzE5NGRmMmEyOGIg
+      UHJvamVjdCBDQTCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAJ+kmIpN
+      1f3hd8JBEbxvrUAlcX6fsRZNbK7HRSisT8bLOJxGAE1FgyKBPa1K0inWbx5ihhXE
+      jq6M6Owh0OfekHrr82nqgdYTyieJpiaMY5xkJZ9NwWKO/G+jnTGbkEUI58PQlecb
+      4+f6hC/hBtZy6TsL/M7Yw1htqyyKUo2Jbru8fHWPG0rDeJEMBqir+Oo6pKEPD9Y7
+      9AefdyHAuir6w6fTbpgzEbqF1+oKLzW0oc2GIK6v2VNN5CeDJ4n00TlSfezQHEJz
+      1f8fxB0KK7iwOwQPNt1lTYgRpqxN4g1Fczj5INciefCfQ2jHk5ZDWliK+pa1qI7q
+      mGA27mx3v/j6Gc3/un4sYjXcFM1BIOLOhzAWuxq+TN62Mdewyl9E5r08yBMmE2TM
+      rftuk1GuJOPMeKfTVf2N3tSuafmlNevKgsSxlNUrv4fJL3oFLAlmx1eCzHT4ZpQ3
+      ICWkNcTE8gJqZuh3hSNMzjCPpqjECg8E8/gq2/XYEH3v9NKkYSLFCTc69QIDAQAB
+      oz8wPTAdBgNVHQ4EFgQUZIfvyqTfVDNxWqjSKK6oFlc5zsUwDwYDVR0TBAgwBgEB
+      /wIBADALBgNVHQ8EBAMCAQYwDQYJKoZIhvcNAQEMBQADggGBAEtURnYw6sjI4RiO
+      +24lTApq0w0i+0cKGxHjj9vM/0LCW/Vclq1eUti6ibkTo2utiaDnQx8BLA/ouzwf
+      JI1ygDBN7Pe7HlxExoqLtSgIcsYeTv0bHb1+5Yy8H9rmI4YJlFVn8C595sWEXYcH
+      jOi+yfxHh4tTMDI6MhoG57bEqqz2cdBmuaprYHzCFp6Pv9Ef+fNd2CFgBgpsqZnM
+      Rapjg51GK8v03K1skZuAKKF4xLzqCJoxGl9E8sCEHzHiE6Blol2/UU6CoFSbcNoG
+      I4hHoQxetVKBr8iQDlqNQGTyeA2xJzdLt30B5cyUEPEVZvC33dg8i7TwbewznY9z
+      iwEhMmnnFucv65yb2lhAcvhg05CdSVWb95mxis0cyEFk2Yyy6KhItJNQCytg0kRt
+      jbwvg9ILW7A2yFXxQgpospaeADofkXVXOacnHnp6ub7ZG6mP5Kh3zNmuada6rw7T
+      AXXjCSp1QzUS29qRjKidJjctKzm3aZQTzdlUOu+7+koduOkD2Q==
+      -----END CERTIFICATE-----
+      `,
     }
 });
 
